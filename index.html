@@ -17,7 +17,7 @@
         .then((data) => {
           const parser = new DOMParser();
           const parsedHtml = parser.parseFromString(data, 'text/html')
-          const src = parsedHtml.images[100].dataset.src
+          const src = parsedHtml.images[99].dataset.src
           document.querySelector('.bam').src = src;
         });
     </script>
