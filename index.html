@@ -1,1 +1,37 @@
-<h1>Gigio - Connecting professional freelance musicians</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Who's Not in Dune?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+      const random = Math.floor(Math.random() * 500);
+      const query = "https://cors-anywhere.herokuapp.com/https://www.google.com/search?tbm=isch&sa=1&ei=vGRwXNjxBcSV_Qbm8bTwDQ&q=headshot+" + random;
+
+      fetch(query)
+        .then((res) => {
+          return res.text();
+        })
+        .then((data) => {
+          const parser = new DOMParser();
+          const parsedHtml = parser.parseFromString(data, 'text/html')
+          const src = parsedHtml.images[100].dataset.src
+          document.querySelector('.bam').src = src;
+        });
+    </script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title is-1">
+        Who's Not in The New Dune Movie?
+      </h1>
+      <div class="container">
+        <img class="bam" />
+      </div>
+    </div>
+  </section>
+  </body>
+</html>
